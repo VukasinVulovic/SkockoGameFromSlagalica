@@ -30,7 +30,8 @@ window.addEventListener('load', () => {
 
         vremeProslo += 3;
     }, 2000);
-    // console.log(nasumicnoIzabrano.map(i => uzmiIkonicu(i)).join(' '));
+
+    console.log(nasumicnoIzabrano.map(i => uzmiIkonicu(i)).join(' '));
 });
 
 
@@ -81,9 +82,13 @@ function proveriPogodjene() {
         if(trenutniIzbor[i] === nasumicnoIzabrano[i])
             naMestu++;    
 
-        if(trenutniIzbor.includes(nasumicnoIzabrano[i]))
+        if(trenutniIzbor.includes(nasumicnoIzabrano[i])) {
+            trenutniIzbor[i] = undefined;
             pogodjeno++;
+        }
     }
+
+    console.log('Pogodjeno ' + pogodjeno + ' Na mestu ' + naMestu);
 
     for(let i = 0; i < 4; i++) {
         let ikonica = '⚫';
