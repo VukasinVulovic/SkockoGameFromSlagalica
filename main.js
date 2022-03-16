@@ -82,13 +82,18 @@ function proveriPogodjene() {
         if(trenutniIzbor[i] === nasumicnoIzabrano[i])
             naMestu++;    
 
-        if(trenutniIzbor.includes(nasumicnoIzabrano[i])) {
-            trenutniIzbor[i] = undefined;
+        const index  = trenutniIzbor.indexOf(nasumicnoIzabrano[i]);
+
+        if(index > 0) {
+            trenutniIzbor[index] = undefined;
             pogodjeno++;
         }
     }
 
     console.log('Pogodjeno ' + pogodjeno + ' Na mestu ' + naMestu);
+
+    if(naMestu > pogodjeno)
+        pogodjeno = naMestu;
 
     for(let i = 0; i < 4; i++) {
         let ikonica = '⚫';
